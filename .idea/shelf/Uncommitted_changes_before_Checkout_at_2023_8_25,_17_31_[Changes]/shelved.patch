@@ -1,0 +1,25 @@
+Index: src/main/resources/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\n<html>\n<head>\n    <meta charset=\"UTF-8\">\n    <title>上传简历</title>\n</head>\n<<<<<<< HEAD\n<input type=\"file\" id=\"fileInput\">\n<button id=\"uploadButton\">Upload</button>\n<div id=\"result\"></div>\n\n<script>\n    document.getElementById('uploadButton').addEventListener('click', async function() {\n        const fileInput = document.getElementById('fileInput');\n        const file = fileInput.files[0];\n\n        const formData = new FormData();\n        formData.append('file', file);\n\n        const response = await fetch('https://yuhuijing01.azurewebsites.net/', {\n            method: 'POST',\n            body: formData\n        });\n\n        const resultDiv = document.getElementById('result');\n        if (response.ok) {\n            resultDiv.textContent = 'File uploaded successfully.';\n        } else {\n            resultDiv.textContent = 'Error uploading file.';\n        }\n    });\n</script>\n=======\n<body>\n<h2>上传简历</h2>\n<form action=\"/yuhuijing.azurewebsites.net\" method=\"post\" enctype=\"multipart/form-data\">\n    <label for=\"resume\">选择简历：</label>\n    <input type=\"file\" name=\"resume\" id=\"resume\">\n    <br><br>\n    <input type=\"submit\" value=\"上传\">\n</form>\n</body>\n>>>>>>> 26b63349c37a4846701af49628405574f152b56a\n</html>\n
+===================================================================
+diff --git a/src/main/resources/index.html b/src/main/resources/index.html
+--- a/src/main/resources/index.html	
++++ b/src/main/resources/index.html	
+@@ -30,15 +30,5 @@
+         }
+     });
+ </script>
+-=======
+-<body>
+-<h2>上传简历</h2>
+-<form action="/yuhuijing.azurewebsites.net" method="post" enctype="multipart/form-data">
+-    <label for="resume">选择简历：</label>
+-    <input type="file" name="resume" id="resume">
+-    <br><br>
+-    <input type="submit" value="上传">
+-</form>
+-</body>
+->>>>>>> 26b63349c37a4846701af49628405574f152b56a
++
+ </html>
