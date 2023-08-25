@@ -1,0 +1,25 @@
+Index: src/main/java/com/example/demo/DemoApplication.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.demo;\n\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.ui.Model;\nimport org.springframework.web.bind.annotation.*;\nimport org.springframework.web.multipart.MultipartFile;\n\n@SpringBootApplication\n@RestController\npublic class DemoApplication {\n\n\tpublic static void main(String[] args) {\n\t\tSpringApplication.run(DemoApplication.class, args);\n\t}\n\n\t// @RequestMapping(\"/\")\n\t// String sayHello() {\n\t// \treturn \"Hello Azure!!\";\n\t// }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/demo/DemoApplication.java b/src/main/java/com/example/demo/DemoApplication.java
+--- a/src/main/java/com/example/demo/DemoApplication.java	
++++ b/src/main/java/com/example/demo/DemoApplication.java	
+@@ -14,10 +14,10 @@
+ 		SpringApplication.run(DemoApplication.class, args);
+ 	}
+ 
+-	// @RequestMapping("/")
+-	// String sayHello() {
+-	// 	return "Hello Azure!!";
+-	// }
++	 @RequestMapping("/")
++	 String sayHello() {
++	 	return "Hello Azure!!";
++	 }
+ 
+ 
+ }
