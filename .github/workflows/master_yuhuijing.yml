@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'yuhuijing'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E2808CFBC85841489166DA0B29DBF4C5 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0AF1CA30DDD44524AC6287D0222B04AF }}
           package: '*.jar'
