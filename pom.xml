@@ -40,6 +40,12 @@
 			<artifactId>azure-storage-blob</artifactId>
 			<version>12.13.0</version>
 		</dependency>
+		<!--添加static和templates的依赖-->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
 
 	</dependencies>
 
