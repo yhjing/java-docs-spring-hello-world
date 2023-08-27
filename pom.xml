@@ -11,6 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>java-docs-spring-hello-world</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
 	<name>java-docs-spring-hello-world</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -57,6 +58,15 @@
 			</plugin>
 
 		</plugins>
+
+			<resources>
+				<resource>
+					<directory>src/main/resources</directory>
+					<filtering>true</filtering> <!-- 如果需要在资源文件中使用 Maven 属性，可以开启 filtering -->
+				</resource>
+			</resources>
+
+
 	</build>
 
 </project>
