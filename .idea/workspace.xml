@@ -7,8 +7,6 @@
     <list default="true" id="c770d690-06fc-4638-ade5-81cd0da1d1f6" name="Changes" comment="Update DemoApplication.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/DemoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/upload.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/upload.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +70,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources/static" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.DemoApplication">
+  <component name="RunManager">
     <configuration default="true" type="AZURE_FUNCTION_SUPPORT" factoryName="Run Functions">
       <option name="appName" />
       <option name="appServicePlanName" />
@@ -137,6 +135,15 @@
     </recent_temporary>
   </component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="Update DemoApplication.java">
+      <option name="closed" value="true" />
+      <created>1693118075062</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1693118075062</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -149,6 +156,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update DemoApplication.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update DemoApplication.java" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
