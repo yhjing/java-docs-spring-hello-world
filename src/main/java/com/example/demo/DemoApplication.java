@@ -11,17 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
-
-// 其他代码...
-
-
-import java.io.File;
-import java.io.IOException;
-
+import java.io.InputStream;
 @SpringBootApplication
 public class DemoApplication {
 
@@ -46,22 +38,20 @@ public class DemoApplication {
 		BlobClient blobClient = containerClient.getBlobClient(blobName);
 
 
-		@RequestMapping("/")
+		@GetMapping("/")
 		String showUploadForm() {
 			return "upload"; // 返回上传表单的视图名称
 		}
-		@GetMapping("/") // 添加处理根路径 GET 请求的方法
-		String showUploadFormGet() {
-			return "upload"; // 返回上传表单的视图名称
-		}
 
-		@PostMapping("/upload")
-		String handleFileUpload(@RequestParam("file")MultipartFile file, Model model) {
+		@PostMapping("/yuhuijing.azurewebsites.net")
+		String handleFileUpload(MultipartFile file, Model model) {
 			try {
 				if (!file.isEmpty()) {
 					// 获取文件输入流
 					InputStream inputStream = file.getInputStream();
 
+					blobClient.upload(file.getInputStream(), file.getSize());
+					model.addAttribute("message", "简历上传成功111！");
 					// 上传文件
 					blobClient.upload(inputStream, file.getSize());
 
@@ -69,6 +59,7 @@ public class DemoApplication {
 					inputStream.close();
 						model.addAttribute("message", "文件上传成功！");
 					} else {
+
 					model.addAttribute("message", "请选择一个文件进行上传。");
 				}
 
@@ -76,18 +67,9 @@ public class DemoApplication {
 				model.addAttribute("message", "上传失败：" + e.getMessage());
 			}
 
-			return "uploadResult"; // 返回上传结果视图
+			return "upload"; // 返回上传结果视图
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
 
 
