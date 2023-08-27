@@ -27,8 +27,12 @@ public class DemoApplication {
 		private final String connectionString = "DefaultEndpointsProtocol=https;AccountName=dev9d94;AccountKey=mjDdteH3zs6eIKc2edSubkgqA5evFVgsZo+UgSQ3yCYx1aLjntnS0YXlJRmygkmhG//zsTUWSOc5+ASt/MmbSg==;EndpointSuffix=core.windows.net";
 		private final String containerName = "azure-webjobs-hosts";
 
-		@GetMapping("/")
+		@RequestMapping("/")
 		String showUploadForm() {
+			return "upload"; // 返回上传表单的视图名称
+		}
+		@GetMapping("/") // 添加处理根路径 GET 请求的方法
+		String showUploadFormGet() {
 			return "upload"; // 返回上传表单的视图名称
 		}
 

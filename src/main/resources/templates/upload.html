@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+</head>
+<body>
+<h1>上传文件</h1>
+
+<form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" id="fileInput">
+    <button type="button" onclick="uploadFile()">上传</button>
+</form>
+<div>
+    <p th:text="${value1}"></p>
+    <p th:text="${value2}"></p>
+</div>
+
+<div id="message"></div>
+
+<script>
+    function uploadFile() {
+        var fileInput = document.getElementById('fileInput');
+        var file = fileInput.files[0];
+
+        if (file) {
+            var formData = new FormData();
+            formData.append('file', file);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/upload', true);
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    document.getElementById('message').innerText = '文件上传成功！';
+                } else {
+                    document.getElementById('message').innerText = '文件上传失败：' + xhr.statusText;
+                }
+            };
+
+            xhr.send(formData);
+        } else {
+            document.getElementById('message').innerText = '请选择要上传的文件。';
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
