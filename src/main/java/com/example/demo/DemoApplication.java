@@ -26,13 +26,13 @@ public class DemoApplication {
 	@Controller
 	public class UploadController {
 		// Azure Blob 存储连接字符串
-		private final String connectionString = "DefaultEndpointsProtocol=https;AccountName=dev9d94;AccountKey=mjDdteH3zs6eIKc2edSubkgqA5evFVgsZo+UgSQ3yCYx1aLjntnS0YXlJRmygkmhG//zsTUWSOc5+ASt/MmbSg==;EndpointSuffix=core.windows.net";
+		private final String connectionString = "DefaultEndpointsProtocol=https;AccountName=upload001;AccountKey=sSYjddkpv2zaTCCgaB4SUVi8FXaMZnbcgc7U/bO3lENRZyXzuMZlbiFtreg10PqaIUWaQPKMzL85+ASt6ygRGg==;EndpointSuffix=core.windows.net";
 		// 初始化 BlobServiceClient
 		BlobServiceClient blobServiceClient = new BlobServiceClientBuilder().connectionString(connectionString).buildClient();
 		// 容器名称
-		private final String containerName = "azure-webjobs-hosts";
+		private final String containerName = "001upload";
 		// Blob 名称
-		private final String blobName = "dev9d94";
+		private final String blobName = "upload001";
 		// 获取 BlobContainerClient
 		BlobContainerClient containerClient = blobServiceClient.getBlobContainerClient(containerName);
 		// 获取 BlobClient
