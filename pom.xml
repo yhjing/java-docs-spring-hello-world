@@ -48,6 +48,15 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
+
+			<dependency>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-all</artifactId>
+				<version>4.1.86.Final</version>
+			</dependency>
+
+
+
 	</dependencies>
 
 	<build>
