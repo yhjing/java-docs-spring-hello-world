@@ -38,8 +38,7 @@ public class DemoApplication {
 		// 获取 BlobClient
 		BlobClient blobClient = containerClient.getBlobClient(blobName);
 
-
-		@GetMapping("/")
+		@GetMapping("/upload")
 		String showUploadForm() {
 			return "upload"; // 返回上传表单的视图名称
 		}
@@ -48,26 +47,57 @@ public class DemoApplication {
 		String handleFileUpload(MultipartFile file, Model model) {
 			try {
 				if (!file.isEmpty()) {
+
+					String originalFileName = file.getOriginalFilename();
+					String uniqueFileName = System.currentTimeMillis() + "-" + originalFileName;
+
 					// 获取文件输入流
 					InputStream inputStream = file.getInputStream();
 
 					blobClient.upload(file.getInputStream(), file.getSize());
-					model.addAttribute("message", "简历上传成功111！");
-
+					model.addAttribute("uploadSuccess", true);
+					model.addAttribute("message", "文件上传成功！");
+					model.addAttribute("fileName", uniqueFileName);
+					model.addAttribute("fileSize", formatFileSize(file.getSize())); // 格式化文件大小
 					// 关闭输入流
 					inputStream.close();
-						model.addAttribute("message", "文件上传成功！");
+
+					return "uploadResult";
 					} else {
-
+					model.addAttribute("uploadSuccess", false);
 					model.addAttribute("message", "请选择一个文件进行上传。");
-				}
 
+					return "uploadResult";
+				}
 			} catch (Exception e) {
+				model.addAttribute("uploadSuccess", false);
 				model.addAttribute("message", "上传失败：" + e.getMessage());
 			}
 
 			return "uploadResult"; // 返回上传结果视图
 		}
+
+		public class ErrorController {
+			@RequestMapping("/error")
+			public String handleError() {
+				return "error"; // 返回错误页面的视图名称
+			}
+		}
+		// 格式化文件大小的方法
+		private String formatFileSize(long fileSize) {
+			if (fileSize <= 0) {
+				return "0 B";
+			}
+
+			final String[] units = {"B", "KB", "MB", "GB", "TB"};
+			int digitGroups = (int) (Math.log10(fileSize) / Math.log10(1024));
+
+			return String.format("%.1f %s", fileSize / Math.pow(1024, digitGroups), units[digitGroups]);
+		}
+
+
+
+
 	}
 }
 

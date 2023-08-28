@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>上传结果</title>
+    <title>上传结果页面</title>
     <meta charset="UTF-8">
-
 </head>
 <body>
-<h2>上传结果</h2>
-<p th:text="${message}"></p>
+<h1>上传结果</h1>
+
+<div>
+    <p th:text="${message}"></p>
+    <!-- 根据 uploadSuccess 属性值来显示不同内容 -->
+    <p th:if="${uploadSuccess}">上传成功！</p>
+    <p th:unless="${uploadSuccess}">上传失败！</p>
+
+<!--    &lt;!&ndash; 显示上传的文件名和大小 &ndash;&gt;-->
+<!--    <p>文件名: <span th:text="${fileName}"></span></p>-->
+<!--    <p>文件大小: <span th:text="${fileSize}"></span></p>-->
+</div>
+
+<p><a href="/upload">返回上传页面</a></p>
 </body>
 </html>
